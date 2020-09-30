@@ -1,6 +1,10 @@
 .gradle
 sandbox/build/
 sandbox/out
+sandbox/caches
+sandbox/daemon
+sandbox/native
+sandbox/wrapper
 
 # Ignore Gradle GUI config
 gradle-app.setting
