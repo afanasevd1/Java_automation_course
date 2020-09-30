@@ -2,9 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
-      <module name="Java_automation_course.sandbox.main" target="15" />
-      <module name="sandbox" target="15" />
-      <module name="sandbox.test" target="15" />
+      <module name="Java_automation_course.sandbox.main" target="8" />
+      <module name="sandbox" target="8" />
+      <module name="sandbox.test" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

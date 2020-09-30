@@ -6,7 +6,6 @@
     <content url="file://$MODULE_DIR$/../../sandbox/src/test" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Java_automation_course.sandbox.main" />
   </component>
   <component name="TestModuleProperties" production-module="sandbox.main" />
 </module>
