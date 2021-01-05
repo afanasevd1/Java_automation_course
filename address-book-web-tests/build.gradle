@@ -1,6 +1,4 @@
  apply plugin: 'java'
- apply plugin: 'application'
- mainClassName = 'testMoveClassToPackage.MyFirstProgram'
 
  repositories {
   mavenCentral()
@@ -8,4 +6,5 @@
 
  dependencies {
   implementation 'org.testng:testng:7.3.0'
+  implementation 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-1'
  }
