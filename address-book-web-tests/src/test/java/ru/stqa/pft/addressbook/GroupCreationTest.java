@@ -1,4 +1,5 @@
 package ru.stqa.pft.addressbook;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeClass;
@@ -8,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class GroupCreationTest {
-   FirefoxDriver wd;
+  FirefoxDriver wd;
 
   @BeforeClass
   public void setUp() throws Exception {
@@ -30,7 +31,7 @@ public class GroupCreationTest {
   public void testGroupCreation() {
     goToGroupPage();
     initGroupCreation();
-    fillGroupForm("666", "777", "888");
+    fillGroupForm(new GroupData("666", "777", "888"));
     submitGroupCreation();
     returnToGroupPage();
   }
@@ -43,13 +44,13 @@ public class GroupCreationTest {
     wd.findElement(By.name("submit")).click();
   }
 
-  private void fillGroupForm(String name, String header, String footer) {
+  private void fillGroupForm(GroupData groupData) {
     wd.findElement(By.name("group_name")).click();
-    wd.findElement(By.name("group_name")).sendKeys(name);
+    wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
     wd.findElement(By.name("group_header")).click();
-    wd.findElement(By.name("group_header")).sendKeys(header);
+    wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
     wd.findElement(By.name("group_footer")).click();
-    wd.findElement(By.name("group_footer")).sendKeys(footer);
+    wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
   }
 
   private void initGroupCreation() {
