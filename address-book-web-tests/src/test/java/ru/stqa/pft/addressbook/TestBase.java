@@ -1,18 +1,16 @@
 package ru.stqa.pft.addressbook;
 
-import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterGroups;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
   FirefoxDriver wd;
 
-  @BeforeClass
+  @BeforeMethod
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -20,7 +18,7 @@ public class TestBase {
     login("admin", "secret");
   }
 
-  @AfterTest
+  @AfterMethod
   public void tearDown() {
     wd.quit();
   }
