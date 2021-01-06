@@ -2,14 +2,21 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
-public class AplicationManager extends GroupHelper {
+public class AplicationManager {
+
+  public FirefoxDriver wd;
+  public GroupHelper groupHelper;
+  public NavigationHelper navigationHelper;
+  public SessionHelper sessionHelper;
 
   public void init() {
     wd = new FirefoxDriver();
+    groupHelper = new GroupHelper(wd);
+    navigationHelper = new NavigationHelper(wd);
+    sessionHelper = new SessionHelper(wd);
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     login("admin", "secret");
@@ -27,8 +34,11 @@ public class AplicationManager extends GroupHelper {
     wd.findElement(By.cssSelector("input:nth-child(7)")).click();
   }
 
-  public void goToGroupPage() {
-    wd.findElement(By.linkText("groups")).click();
+  public NavigationHelper getNavigationHelper() {
+    return navigationHelper;
   }
 
+  public GroupHelper getGroupHelper() {
+    return groupHelper;
+  }
 }
