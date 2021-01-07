@@ -6,7 +6,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 public class ContactCreationTests  extends TestBase{
 
   @Test
-  public void testCreateContact() throws InterruptedException {
+  public void testCreateContact() {
     app.getContactHelper().createNewContact();
     app.getContactHelper().fillContactForm(new ContactData());
     app.getContactHelper().submitContactCreation();
