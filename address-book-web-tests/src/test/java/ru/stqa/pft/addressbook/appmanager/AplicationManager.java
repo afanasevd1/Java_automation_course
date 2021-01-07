@@ -10,12 +10,15 @@ public class AplicationManager {
   public GroupHelper groupHelper;
   public NavigationHelper navigationHelper;
   public SessionHelper sessionHelper;
+  private ContactHelper contactHelper;
 
   public void init() {
     wd = new FirefoxDriver();
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
+    contactHelper = new ContactHelper(wd);
+
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     sessionHelper.login("admin", "secret");
@@ -31,5 +34,9 @@ public class AplicationManager {
 
   public GroupHelper getGroupHelper() {
     return groupHelper;
+  }
+
+  public ContactHelper getContactHelper (){
+    return contactHelper;
   }
 }
