@@ -14,7 +14,7 @@ public class Eqation {
     this.b = b;
     this.c = c;
 
-    double d = b*b - 4*a*c;
+    double d = b * b - 4 * a * c;
 
     if (a == 0) {
       if (b == 0) {
@@ -28,16 +28,16 @@ public class Eqation {
       }
 
     } else {
-    if (d > 0) {
-      result = 2;
-    } else if (d == 0) {
-      result = 1;
-    } else {
-      if (d < 0) {
-      result = 0;
+      if (d > 0) {
+        result = 2;
+      } else if (d == 0) {
+        result = 1;
+      } else {
+        if (d < 0) {
+          result = 0;
+        }
       }
     }
-  }
 
   }
 

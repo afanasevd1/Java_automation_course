@@ -9,7 +9,7 @@ public class ContactCreationTests  extends TestBase{
   public void testCreateContact() {
     app.getContactHelper().createNewContact();
     // При передаче null в fillContactForm выпадающий список не заполняем
-    app.getContactHelper().fillContactForm(new ContactData(null), true);
+    app.getContactHelper().fillContactForm(new ContactData("666"), true);
     app.getContactHelper().submitContactCreation();
   }
 
