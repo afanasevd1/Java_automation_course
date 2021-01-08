@@ -8,14 +8,14 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
 
   public ContactHelper(WebDriver wd) {
     super(wd);
   }
 
-  public void createNewContact(){
+  public void createNewContact() {
     click(By.xpath("//a[contains(text(),'add new')]"));
   }
 
@@ -24,14 +24,12 @@ public class ContactHelper extends HelperBase{
     type(By.name("lastname"), contactData.getLastName());
     type(By.name("home"), contactData.getTelephone());
     type(By.name("email"), contactData.getEmail());
-    if (contactData.getGroup() != null){
-     if (creation) {
-       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());}
-     }
-    if (contactData.getGroup() == null){
-      if (creation) {
-      } else { Assert.assertFalse(isElementPresent(By.name("new_group"))); }
-   }
+    if (contactData.getGroup() != null && creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else if (contactData.getGroup() == null && creation) {
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
   }
 
   public void submitContactCreation() {

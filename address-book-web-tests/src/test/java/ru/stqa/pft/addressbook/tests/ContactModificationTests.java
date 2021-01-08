@@ -10,7 +10,7 @@ public class ContactModificationTests extends TestBase {
     app.getNavigationHelper().goToHomePage();
     app.getContactHelper().initContactModification();
     // При передаче null в fillContactForm выпадающий список не заполняем
-    app.getContactHelper().fillContactForm(new ContactData("666"), false);
+    app.getContactHelper().fillContactForm(new ContactData(null), false);
     app.getContactHelper().submitContactModification();
     app.getContactHelper().returnToHomePage();
   }
