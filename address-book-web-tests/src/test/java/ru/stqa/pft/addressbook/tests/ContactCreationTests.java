@@ -8,7 +8,8 @@ public class ContactCreationTests  extends TestBase{
   @Test
   public void testCreateContact() {
     app.getContactHelper().createNewContact();
-    app.getContactHelper().fillContactForm(new ContactData());
+    // При передаче null в fillContactForm выпадающий список не заполняем
+    app.getContactHelper().fillContactForm(new ContactData("666"), true);
     app.getContactHelper().submitContactCreation();
   }
 
