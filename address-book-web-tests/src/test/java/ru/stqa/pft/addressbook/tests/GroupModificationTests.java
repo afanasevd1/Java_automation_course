@@ -20,7 +20,6 @@ public class GroupModificationTests extends TestBase {
     app.getGroupHelper().returnToGroupPage();
     int after = app.getGroupHelper().GroupCount();
     Assert.assertEquals(after, before);
-
   }
 
 }

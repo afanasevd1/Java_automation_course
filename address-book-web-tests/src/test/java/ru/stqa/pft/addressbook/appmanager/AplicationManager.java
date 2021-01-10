@@ -17,13 +17,13 @@ public class AplicationManager {
   private ContactHelper contactHelper;
   protected String browser;
 
-  public AplicationManager(String browser){
+  public AplicationManager(String browser) {
 
     this.browser = browser;
   }
 
   public void init() {
-    if (browser.equals(BrowserType.FIREFOX)){
+    if (browser.equals(BrowserType.FIREFOX)) {
       wd = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)) {
       wd = new ChromeDriver();
@@ -52,7 +52,7 @@ public class AplicationManager {
     return groupHelper;
   }
 
-  public ContactHelper getContactHelper (){
+  public ContactHelper getContactHelper() {
     return contactHelper;
   }
 }

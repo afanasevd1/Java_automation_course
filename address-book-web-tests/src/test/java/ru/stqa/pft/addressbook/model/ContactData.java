@@ -9,13 +9,14 @@ public class ContactData {
   private String group;
 
 
-  public ContactData (String group){
+  public ContactData(String group) {
     this.group = group;
     this.firstName = "firstName";
     this.lastName = "lastName";
     this.telephone = "telephone";
     this.email = "email";
   }
+
   public String getFirstName() {
     return firstName;
   }

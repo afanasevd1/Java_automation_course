@@ -6,7 +6,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 public class ContactModificationTests extends TestBase {
 
   @Test
-  public void testModificationContact(){
+  public void testModificationContact() {
     app.getNavigationHelper().goToHomePage();
     app.getContactHelper().initContactModification();
     // При передаче null в fillContactForm выпадающий список не заполняем
