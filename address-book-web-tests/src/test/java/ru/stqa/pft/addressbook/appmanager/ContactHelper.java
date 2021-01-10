@@ -14,7 +14,7 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void createNewContact() {
+  public void initCreateContact() {
     click(By.xpath("//a[contains(text(),'add new')]"));
   }
 
@@ -29,6 +29,13 @@ public class ContactHelper extends HelperBase {
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
+  }
+
+  public void createNewContact(ContactData contactData) {
+    initCreateContact();
+    fillContactForm(contactData, true); // При передаче null в fillContactForm выпадающий список не заполняем
+    submitContactCreation();
+    returnToHomePage();
   }
 
   public void submitContactCreation() {
@@ -48,6 +55,9 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home page"));
   }
 
+  public int getCountContacts() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
 }
 
 
