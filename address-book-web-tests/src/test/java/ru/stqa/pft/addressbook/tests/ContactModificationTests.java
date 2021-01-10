@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -21,7 +20,7 @@ public class ContactModificationTests extends TestBase {
     app.getContactHelper().submitContactModification();
     app.getContactHelper().returnToHomePage();
     int after = app.getContactHelper().getCountContacts();
-    Assert.assertEquals(after, before );
+    Assert.assertEquals(after, before);
   }
 
 }
