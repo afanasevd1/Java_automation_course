@@ -22,9 +22,10 @@ public class HelperBase {
     click(locator);
     if (text != null) { //Не заполнять в полях значения по умолчанию
       String existingText = wd.findElement(locator).getAttribute("value"); //Получить значение из поля ввода
-      if (!text.equals(existingText)) // Не заполнять поле новым значением если в поле уже введено нужное нам значение
+      if (!text.equals(existingText)) { // Не заполнять поле новым значением если в поле уже введено нужное нам значение
         wd.findElement(locator).clear();
-      wd.findElement(locator).sendKeys(text);
+        wd.findElement(locator).sendKeys(text);
+      }
     }
   }
 

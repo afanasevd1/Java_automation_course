@@ -22,7 +22,7 @@ public class GroupDeletionTest extends TestBase {
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), before.size() - 1);
 
-    before.remove(before.size() - 1);
+    before.remove(before.size() - 1); // Проверяем что удалилась именно та группа которую удаляли
     Assert.assertEquals(after, before);
   }
 }
