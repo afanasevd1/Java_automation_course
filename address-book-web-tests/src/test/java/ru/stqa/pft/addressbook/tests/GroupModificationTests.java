@@ -30,5 +30,4 @@ public class GroupModificationTests extends TestBase {
     // Проверяем что модифицировалась именно та группа которую выбирали
     Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
   }
-
 }
