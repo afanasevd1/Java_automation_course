@@ -26,5 +26,6 @@ public class Collections {
    for (String l : languages1) { // l здесь сам объект а не индекс
      System.out.println("Я хочу выучить " + l);
    }
+   ArrayList<String> list = new ArrayList<String>();
   }
 }

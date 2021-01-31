@@ -6,9 +6,10 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactCreationTests extends TestBase {
 
-  @Test
+
+  @Test (enabled = false)
   public void testCreateContact() {
-    app.getNavigationHelper().goToHomePage();
+    app.goTo().goToHomePage();
     int before = app.getContactHelper().getCountContacts();
     app.getContactHelper().createNewContact(new ContactData(null));
     int after = app.getContactHelper().getCountContacts();
