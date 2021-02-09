@@ -11,8 +11,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void GroupPage() {
-    if (isElementPresent(By.tagName("h1")) // Не делать перехо, если мы уже на нужной странице
-            && wd.findElement(By.tagName("h1")).getText().equals("Group")
+    if (isElementPresent(By.xpath("//h1[contains(text(),'Groups')]")) // Не делать переход, если мы уже на нужной странице
             && isElementPresent(By.name("new"))) {
       return;
     }
