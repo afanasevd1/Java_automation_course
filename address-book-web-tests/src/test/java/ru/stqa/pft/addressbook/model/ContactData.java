@@ -4,17 +4,63 @@ public class ContactData {
 
   public String firstName;
   public String lastName;
-  public String telephone;
+  public String telephones;
+  public String homePhone;
+  public String mobilePhone;
+  public String workPhone;
   public String email;
-  private String group;
+  public String group;
+  public String address;
+  public int id;
 
+  public ContactData withHomePhone(String homePhone) {
+    this.homePhone = homePhone;
+    return this;
+  }
 
-  public ContactData(String group) {
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withFirstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+  public ContactData withLastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  public ContactData withTelephones(String telephone) {
+    this.telephones = telephone;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
     this.group = group;
-    this.firstName = "firstName";
-    this.lastName = "lastName";
-    this.telephone = "telephone";
-    this.email = "email";
+    return this;
+  }
+
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
   }
 
   public String getFirstName() {
@@ -25,8 +71,8 @@ public class ContactData {
     return lastName;
   }
 
-  public String getTelephone() {
-    return telephone;
+  public String getTelephones() {
+    return telephones;
   }
 
   public String getEmail() {
@@ -36,4 +82,14 @@ public class ContactData {
   public String getGroup() {
     return group;
   }
+
+  public String getAddress() { return address; }
+
+  public int getId() {return id; }
+
+  public String getHomePhone() { return homePhone; }
+
+  public String getMobilePhone() { return mobilePhone; }
+
+  public String getWorkPhone() { return workPhone; }
 }

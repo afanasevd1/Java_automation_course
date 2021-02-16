@@ -18,7 +18,7 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("groups"));
   }
 
-  public void goToHomePage() { // Не делать перехо, если мы уже на нужной странице
+  public void homePage() { // Не делать перехо, если мы уже на нужной странице
     if (isElementPresent(By.id("maintable"))) {
       return;
     }

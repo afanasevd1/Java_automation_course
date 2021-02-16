@@ -1,25 +1,33 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import java.util.Set;
+
+import static org.testng.Assert.assertEquals;
+
 public class ContactModificationTests extends TestBase {
 
-  @Test(enabled = false)
-  public void testModificationContact() {
-    app.goTo().goToHomePage();
-    if (!app.getContactHelper().isElementPresent(By.name("selected[]"))) {
-      app.getContactHelper().createNewContact(new ContactData(null));
+  @BeforeMethod
+  public void ensurePrecondition() {
+    app.goTo().homePage();
+    if (!app.contact().isElementPresent(By.name("selected[]"))) {
+      app.contact().createNewContact(new ContactData());
     }
-    int before = app.getContactHelper().getCountContacts();
-    app.getContactHelper().initContactModification();
-    // При передаче null в fillContactForm выпадающий список не заполняем
-    app.getContactHelper().fillContactForm(new ContactData(null), false);
-    app.getContactHelper().submitContactModification();
-    app.getContactHelper().returnToHomePage();
-    int after = app.getContactHelper().getCountContacts();
-    Assert.assertEquals(after, before);
+  }
+  @Test
+  public void testModificationContact() {
+    Set<ContactData> before = app.contact().all();
+    ContactData contctModifeied = before.iterator().next();
+    ContactData contact = new ContactData().withId(contctModifeied.getId()).withLastName("Modified Last Name")
+            .withFirstName("Modified First Name").withAddress("Modified Address").withTelephones("777");
+    app.contact().modifyById(contact);
+    assertEquals(app.contact().count(), before.size());
+    before.remove(contctModifeied);
+    before.add(contact);
+    assertEquals(before, app.contact().all());
   }
 }
