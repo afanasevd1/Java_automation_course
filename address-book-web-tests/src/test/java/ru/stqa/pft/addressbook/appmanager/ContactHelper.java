@@ -69,10 +69,10 @@ public class ContactHelper extends HelperBase {
             String address = element.findElement(By.cssSelector("td:nth-child(4)")).getText();
             String email = element.findElement(By.cssSelector("td:nth-child(5)")).getText();
             String allPhones = element.findElement(By.cssSelector("td:nth-child(6)")).getText();
-            String [] phones = element.findElement(By.cssSelector("td:nth-child(6)")).getText().split("\n");
-            System.out.println(allPhones);
+            String phones = element.findElement(By.cssSelector("td:nth-child(6)")).getText();
+            //System.out.println(allPhones);
             contactData.add(new ContactData().withLastName(lastName).withFirstName(firstName).withId(id).withEmail(email)
-                .withAddress(address).withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
+                .withAddress(address).withAllPhones(allPhones));
         }
         return contactData;
     }
