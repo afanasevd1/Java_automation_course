@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -21,16 +22,18 @@ public class ContactHelper extends HelperBase {
 
     public void initCreateContact() {
         click(By.xpath("//a[contains(text(),'add new')]"));
+        click(By.cssSelector("form[name=\"quickadd\"]>input:nth-child(1)"));
     }
 
     public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("lastname"), contactData.getLastName());
-        type(By.name ("address"), contactData.getAddress());
+        type(By.name("address"), contactData.getAddress());
         type(By.name("home"), contactData.getHomePhone());
         type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("work"), contactData.getWorkPhone());
         type(By.name("email"), contactData.getEmail());
+        attach(By.name("photo"), contactData.getPhoto());
         if (contactData.getGroup() != null && creation) {
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
         } else if (contactData.getGroup() == null && creation) {
@@ -72,7 +75,7 @@ public class ContactHelper extends HelperBase {
             String phones = element.findElement(By.cssSelector("td:nth-child(6)")).getText();
             //System.out.println(allPhones);
             contactData.add(new ContactData().withLastName(lastName).withFirstName(firstName).withId(id).withEmail(email)
-                .withAddress(address).withAllPhones(allPhones));
+                    .withAddress(address).withAllPhones(allPhones));
         }
         return contactData;
     }
@@ -82,7 +85,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initContactModificationById(int id) {
-        click(By.cssSelector("a[href=\"edit.php?id="+ id + "\"]"));
+        click(By.cssSelector("a[href=\"edit.php?id=" + id + "\"]"));
     }
 
     public void submitContactModification() {
@@ -112,10 +115,6 @@ public class ContactHelper extends HelperBase {
         return new ContactData()
                 .withLastName(lastName).withFirstName(firstName).withAddress(address)
                 .withEmail(email).withHomePhone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone);
-
-
-
-
 
 
     }
