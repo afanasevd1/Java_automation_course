@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class NavigationHelper extends HelperBase {
 
@@ -10,7 +11,7 @@ public class NavigationHelper extends HelperBase {
     super(wd);
   }
 
-  public void GroupPage() {
+  public void groupPage() {
     if (isElementPresent(By.xpath("//h1[contains(text(),'Groups')]")) // Не делать переход, если мы уже на нужной странице
             && isElementPresent(By.name("new"))) {
       return;
