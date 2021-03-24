@@ -126,7 +126,6 @@ public class GroupHelper extends HelperBase {
         String header = wd.findElement(By.name("group_header")).getText();
         String footer = wd.findElement(By.name("group_footer")).getText();
         navigationHelper.groupPage();
-
         return group.withName(name).withHeader(header).withFooter(footer);
     }
 }
