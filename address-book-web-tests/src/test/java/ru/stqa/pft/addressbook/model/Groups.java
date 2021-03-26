@@ -1,12 +1,14 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.common.collect.ForwardingSet;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Groups extends ForwardingSet<GroupData> {
 
+public class Groups extends ForwardingSet<GroupData> {
+    @XStreamOmitField
     public Set<GroupData> delegate;
 
     public Groups(Groups groups) {

@@ -10,4 +10,6 @@
   implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
   implementation 'com.beust:jcommander:1.78'
   implementation 'com.google.guava:guava:30.1-jre'
+  implementation 'com.thoughtworks.xstream:xstream:1.4.16'
+  implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.2'
  }

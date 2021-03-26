@@ -1,8 +1,20 @@
 package ru.stqa.pft.addressbook.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.util.Objects;
 
+@XStreamAlias("group")
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
+@JsonIgnoreProperties({"delegate", "id", "empty"})
+
 public class GroupData extends Groups {
+    @XStreamOmitField
+    @JsonIgnore
     private int id;
     private String name;
     private String header;
