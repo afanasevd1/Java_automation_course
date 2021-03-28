@@ -19,3 +19,13 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 sandbox/.idea/
 .idea/
+address-book-web-tests/build/reports/tests/test/classes/ru.stqa.pft.addressbook.GroupCreationTest.html
+address-book-web-tests/build/reports/tests/test/css/style.css
+address-book-web-tests/build/reports/tests/test/index.html
+address-book-web-tests/build/reports/tests/test/packages/ru.stqa.pft.addressbook.html
+*.html
+address-book-web-tests/build/reports/tests/test/classes/ru.stqa.pft.addressbook.GroupCreationTest.html
+address-book-web-tests/build/reports/tests/test/css/base-style.css
+address-book-web-tests/build/reports/tests/test/css/style.css
+address-book-web-tests/build/reports/tests/test/index.html
+address-book-web-tests/build/reports/tests/test/js/report.js
