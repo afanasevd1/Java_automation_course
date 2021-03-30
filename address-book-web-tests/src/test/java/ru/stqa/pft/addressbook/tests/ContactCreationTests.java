@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 
 public class ContactCreationTests extends TestBase {
 
-    @Test()
+    @Test
     public void testCreateContact() {
         app.goTo().homePage();
         int before = app.contact().count();
