@@ -47,3 +47,7 @@ address-book-web-tests/build/reports/tests/test/js/report.js
 address-book-web-tests/build/reports/tests/test/index.html
 *.class
 *.class
+address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/AplicationManager.class
+address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupCreationTest.class
+address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/TestBase.class
+address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/GroupData.class
