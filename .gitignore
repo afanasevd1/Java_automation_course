@@ -45,3 +45,5 @@ address-book-web-tests/build/tmp/compileTestJava/source-classes-mapping.txt
 address-book-web-tests/build/test-results/testGroup/TEST-ru.stqa.pft.addressbook.tests.GroupModificationTests.xml
 address-book-web-tests/build/reports/tests/test/js/report.js
 address-book-web-tests/build/reports/tests/test/index.html
+*.class
+*.class

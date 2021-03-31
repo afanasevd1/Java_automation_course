@@ -13,6 +13,8 @@
   implementation 'com.thoughtworks.xstream:xstream:1.4.16'
   implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.2'
   implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+  implementation 'mysql:mysql-connector-java:5.1.38'
+  implementation 'org.hibernate:hibernate-core:5.4.29.Final'
  }
 
  task testGroup (type: Test) {
