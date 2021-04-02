@@ -16,21 +16,24 @@ import java.util.concurrent.TimeUnit;
 public class AplicationManager {
   private final Properties properties;
   public WebDriver wd;
-
   public GroupHelper groupHelper;
   public NavigationHelper navigationHelper;
   public SessionHelper sessionHelper;
   private ContactHelper contactHelper;
   protected String browser;
+  private DbHelper dbHelper;
 
   public AplicationManager(String browser) {
     this.browser = browser;
     properties = new Properties();
   }
 
-  public void  init() throws IOException {
+  public void  init() throws Exception {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+    dbHelper = new DbHelper();
+
     if (browser.equals(BrowserType.FIREFOX)) {
       wd = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)) {
@@ -46,6 +49,10 @@ public class AplicationManager {
     wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
     sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
+  }
+
+  public DbHelper db() {
+    return dbHelper;
   }
 
   public void stop() {

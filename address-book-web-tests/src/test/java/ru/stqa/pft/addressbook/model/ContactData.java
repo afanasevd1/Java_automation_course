@@ -1,25 +1,74 @@
 package ru.stqa.pft.addressbook.model;
 
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 import java.io.File;
 
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
 
-  public String firstName;
-  public String lastName;
-  public String telephones;
-  public String homePhone;
-  public String mobilePhone;
-  public String workPhone;
-  public String allPhones;
-  public String email;
-  public String group;
-  public String address;
+  @Id
+  @Column(name = "id")
   public int id;
-  public File photo;
 
+  @Column(name = "firstname")
+  public String firstName;
+
+  @Column(name = "lastname")
+  public String lastName;
+
+  @Column(name = "home")
+  @Type(type = "text")
+  public String homePhone;
+
+  @Column(name = "mobile")
+  @Type(type = "text")
+  public String mobilePhone;
+
+  @Column(name = "work")
+  @Type(type = "text")
+  public String workPhone;
+
+  @Transient
+  private String group;
+
+  @Transient
+  public String allPhones;
+
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
+
+  @Column (name = "address")
+  @Type(type = "text")
+  private String address;
+
+  @Column(name = "email")
+  @Type(type = "text")
+  private String email;
+
+  public String getEmail() {
+    return email;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+
+
+  public File getPhoto() { return new File(photo);  }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -43,11 +92,6 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withAddress(String address) {
-    this.address = address;
-    return this;
-  }
-
   public ContactData withFirstName(String firstName) {
     this.firstName = firstName;
     return this;
@@ -55,16 +99,6 @@ public class ContactData {
 
   public ContactData withLastName(String lastName) {
     this.lastName = lastName;
-    return this;
-  }
-
-  public ContactData withTelephones(String telephone) {
-    this.telephones = telephone;
-    return this;
-  }
-
-  public ContactData withEmail(String email) {
-    this.email = email;
     return this;
   }
 
@@ -86,19 +120,9 @@ public class ContactData {
     return lastName;
   }
 
-  public String getTelephones() {
-    return telephones;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
   public String getGroup() {
     return group;
   }
-
-  public String getAddress() { return address; }
 
   public int getId() {return id; }
 
@@ -110,5 +134,23 @@ public class ContactData {
 
   public String getAllPhones() { return allPhones; }
 
-  public File getPhoto() { return photo; }
+  public String getAddress() { return address; }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", homePhone='" + homePhone + '\'' +
+            ", mobilePhone='" + mobilePhone + '\'' +
+            ", workPhone='" + workPhone + '\'' +
+            ", group='" + group + '\'' +
+            ", allPhones='" + allPhones + '\'' +
+            ", photo='" + photo + '\'' +
+            ", address='" + address + '\'' +
+            ", email='" + email + '\'' +
+            '}';
+  }
+
 }

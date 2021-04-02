@@ -51,3 +51,5 @@ address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/Aplic
 address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupCreationTest.class
 address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/TestBase.class
 address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/GroupData.class
+address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactModificationTests.class
+address-book-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/ContactData.class
