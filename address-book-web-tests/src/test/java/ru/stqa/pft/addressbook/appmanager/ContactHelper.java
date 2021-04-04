@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -33,10 +32,11 @@ public class ContactHelper extends HelperBase {
         type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("work"), contactData.getWorkPhone());
         type(By.name("email"), contactData.getEmail());
-        attach(By.name("photo"), contactData.getPhoto());
-        if (contactData.getGroup() != null && creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-        } else if (contactData.getGroup() == null && creation) {
+        if (creation) {                                 // Используем данное условия только для формц создания контакта, иначе используем для формы модификации контакта
+            if (contactData.getGroup() != null) {
+                attach(By.name("photo"), contactData.getPhoto());
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -73,7 +73,6 @@ public class ContactHelper extends HelperBase {
             String email = element.findElement(By.cssSelector("td:nth-child(5)")).getText();
             String allPhones = element.findElement(By.cssSelector("td:nth-child(6)")).getText();
             String phones = element.findElement(By.cssSelector("td:nth-child(6)")).getText();
-            //System.out.println(allPhones);
             contactData.add(new ContactData().withLastName(lastName).withFirstName(firstName).withId(id).withEmail(email)
                     .withAddress(address).withAllPhones(allPhones));
         }
